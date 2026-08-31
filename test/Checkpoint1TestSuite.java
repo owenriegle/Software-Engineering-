@@ -48,7 +48,7 @@ public class Checkpoint1TestSuite {
     
     // query the git remote to find the repo URL
     private String getBaseApiPath() throws Exception {
-        Process getRemote = new ProcessBuilder("git", "remote",  "get-url", "origin", "--push").start();
+        Process getRemote = new ProcessBuilder("git", "remote", "get-url", "origin", "--push").start();
         getRemote.waitFor();
         String output = new String(getRemote.getInputStream().readAllBytes());
         String ownerRepo = output.substring("https://github.com/".length());
@@ -119,7 +119,7 @@ public class Checkpoint1TestSuite {
     private void sortCommits(List<JsonElement> commits) {
         Collections.sort(commits, (c1, c2) -> {
             try {
-                return -1*getCommitDate(c1).compareTo(getCommitDate(c2));
+                return -1 * getCommitDate(c1).compareTo(getCommitDate(c2));
             } catch (ParseException e) {
                 throw new RuntimeException(e);
             }
@@ -140,7 +140,7 @@ public class Checkpoint1TestSuite {
 
         for (JsonElement check : JsonParser.parseString(statusCheckResult).getAsJsonObject().get("check_runs").getAsJsonArray().asList()) {
             String name = check.getAsJsonObject().get("name").getAsString();
-            String status =  check.getAsJsonObject().get("status").getAsString();
+            String status = check.getAsJsonObject().get("status").getAsString();
             if (status.equals(COMPLETED)) {
                 String result = check.getAsJsonObject().get("conclusion").getAsString();
                 checkToStatus.put(name, result);
