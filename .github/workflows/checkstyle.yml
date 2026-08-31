@@ -39,12 +39,14 @@ jobs:
           exec java -jar /opt/lib/checkstyle.jar "." -c "checkstyle_checks.xml" -f xml > results.xml
 
       - name: Reviewdog (Checkstyle)
-        uses: reviewdog/action-checkstyle@v1
+        uses: reviewdog/action-reviewdog@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
           level: warning
-          checkstyle_input: results.xml
+          tool_name: checkstyle
+          input: results.xml
+          format: checkstyle
 
       - name: Print Results (Colorized)
         run: |
