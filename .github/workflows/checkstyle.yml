@@ -39,7 +39,7 @@ jobs:
           exec java -jar /opt/lib/checkstyle.jar "." -c "checkstyle_checks.xml" -f xml > results.xml
 
       - name: Reviewdog (Checkstyle)
-        uses: reviewdog/action-reviewdog@v1
+        uses: reviewdog/action-lint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
