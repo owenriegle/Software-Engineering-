@@ -64,7 +64,6 @@
                     LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_WHILE, METHOD_DEF,
                     OBJBLOCK, STATIC_INIT, RECORD_DEF, COMPACT_CTOR_DEF"/>
     </module>
-    <module name="ArrayBracketNoWhitespace"/>
     <module name="RightCurly">
       <property name="id" value="RightCurlySame"/>
       <property name="tokens"
